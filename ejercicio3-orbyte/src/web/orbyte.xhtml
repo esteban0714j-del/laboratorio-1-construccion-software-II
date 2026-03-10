@@ -1,1 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
 
+<h:head>
+<title>Orbyte - Pedidos</title>
+</h:head>
+
+<h:body>
+
+<h2>Registrar Pedido</h2>
+
+<h:form>
+
+Mesa:
+
+<h:inputText value="#{orderManagedBean.table}" />
+
+Producto:
+
+<h:inputText value="#{orderManagedBean.product}" />
+
+Notas:
+
+<h:inputText value="#{orderManagedBean.notes}" />
+
+<h:commandButton value="Agregar Pedido">
+
+<f:ajax execute="@form" listener="#{orderManagedBean.addOrder}" render="tabla"/>
+
+</h:commandButton>
+
+</h:form>
+
+<h:dataTable value="#{orderManagedBean.orders}" var="o" id="tabla">
+
+<h:column>
+#{o.tableNumber}
+</h:column>
+
+<h:column>
+#{o.product}
+</h:column>
+
+<h:column>
+#{o.notes}
+</h:column>
+
+</h:dataTable>
+
+</h:body>
+
+</html>
