@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<title>Consulta Bancaria</title>
+</h:head>
+
+<h:body>
+
+<h2>Consulta de Cliente</h2>
+
+<h:form>
+
+Ingrese ID del cliente:
+
+<h:inputText value="#{bankingBeanAjax.customerId}" />
+
+<h:commandButton value="Consultar">
+
+<f:ajax execute="@form" listener="#{bankingBeanAjax.searchCustomer}" render="resultado"/>
+
+</h:commandButton>
+
+</h:form>
+
+<h:panelGroup id="resultado">
+
+<h:panelGroup rendered="#{bankingBeanAjax.customer != null}">
+
+<p>Nombre: #{bankingBeanAjax.customer.firstName}</p>
+
+<p>Apellido: #{bankingBeanAjax.customer.lastName}</p>
+
+<p>Balance: #{bankingBeanAjax.customer.balance}</p>
+
+</h:panelGroup>
+
+</h:panelGroup>
+
+</h:body>
+
+</html>
