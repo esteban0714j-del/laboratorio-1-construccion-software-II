@@ -1,1 +1,37 @@
+package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Producto {
+
+    @Id
+    private int idProducto;
+    private String nombre;
+    private double precio;
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+}
